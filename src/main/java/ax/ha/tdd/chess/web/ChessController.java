@@ -28,5 +28,4 @@ public class ChessController {
         game = new Game();
         return "redirect:/chess";
     }
-
 }

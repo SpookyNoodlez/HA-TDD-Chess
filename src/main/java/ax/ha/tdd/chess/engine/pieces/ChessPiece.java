@@ -45,6 +45,14 @@ public abstract class ChessPiece {
      */
     public abstract boolean canMove(final Chessboard chessboard, final Coordinates destination);
 
+    //Disallow moving to a spot containing the player's own piece. Call in child class before its own move logic.
+    public boolean isOwnPiece(final Chessboard chessboard, final Coordinates destination){
+        if (chessboard.getPiece(destination).player == player){
+            return true;
+        }
+        return false;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

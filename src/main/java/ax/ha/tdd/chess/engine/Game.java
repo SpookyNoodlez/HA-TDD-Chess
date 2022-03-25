@@ -3,9 +3,10 @@ package ax.ha.tdd.chess.engine;
 public class Game {
 
     Chessboard board = Chessboard.startingBoard();
-
-    //Feel free to delete this stuff. Just for initial testing.
     boolean isNewGame = true;
+    String lastMoveResult = "Game hasn't begun";
+
+
 
     public Player getPlayerToMove() {
         //TODO this should reflect the current state.
@@ -27,6 +28,9 @@ public class Game {
 
     public void move(String move) {
         //TODO this should trigger your move logic.
+        //input from field
+
+
         isNewGame = false;
         System.out.println("Player tried to perform move: " + move);
     }

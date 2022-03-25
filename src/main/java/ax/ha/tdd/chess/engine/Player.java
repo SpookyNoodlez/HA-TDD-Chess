@@ -13,4 +13,11 @@ public enum Player {
     public String getSymbol() {
         return symbol;
     }
+
+    public String getOppositeSymbol(){
+        if (this.symbol == "W"){
+            return "B";
+        }
+        return "W";
+    }
 }
