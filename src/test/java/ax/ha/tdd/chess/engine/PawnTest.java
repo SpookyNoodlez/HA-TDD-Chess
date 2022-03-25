@@ -13,7 +13,6 @@ public class PawnTest {
     public void setup(){
         board = Chessboard.startingBoard();
     }
-
     @Test
     public void WhiteMoveOneSpaceUnhindered(){
         Pawn pawn = new Pawn(PieceType.PAWN,Player.WHITE,new Coordinates(4,6));
@@ -21,7 +20,6 @@ public class PawnTest {
 
         Assertions.assertTrue(pawn.canMove(board,new Coordinates(4,5)));
     }
-
     @Test
     public void WhiteMoveOneSpaceBlocked(){
         Pawn pawn = new Pawn(PieceType.PAWN,Player.WHITE,new Coordinates(4,6));
@@ -31,7 +29,6 @@ public class PawnTest {
 
         Assertions.assertFalse(pawn.canMove(board,new Coordinates(4,5)));
     }
-
     @Test
     public void WhiteMoveTwoSpacesUnhindered(){
         Pawn pawn = new Pawn(PieceType.PAWN,Player.WHITE,new Coordinates(4,6));
@@ -39,7 +36,6 @@ public class PawnTest {
 
         Assertions.assertTrue(pawn.canMove(board,new Coordinates(4,4)));
     }
-
     @Test
     public void WhiteMoveTwoSpacesBlockedOnFirstSquare(){
         Pawn pawn = new Pawn(PieceType.PAWN,Player.WHITE,new Coordinates(4,6));
@@ -49,7 +45,6 @@ public class PawnTest {
 
         Assertions.assertFalse(pawn.canMove(board,new Coordinates(4,4)));
     }
-
     @Test
     public void WhiteMoveTwoSpacesBlockedOnSecondSquare(){
         Pawn pawn = new Pawn(PieceType.PAWN,Player.WHITE,new Coordinates(4,6));
@@ -59,7 +54,6 @@ public class PawnTest {
 
         Assertions.assertFalse(pawn.canMove(board,new Coordinates(4,4)));
     }
-
     @Test
     public void WhiteCaptureLeft(){
         Pawn pawn = new Pawn(PieceType.PAWN,Player.WHITE,new Coordinates(4,6));
@@ -68,5 +62,14 @@ public class PawnTest {
         board.addPiece(pawn2);
 
         Assertions.assertTrue(pawn.canMove(board,new Coordinates(3,5)));
+    }
+    @Test
+    public void WhiteCaptureRight(){
+        Pawn pawn = new Pawn(PieceType.PAWN,Player.WHITE,new Coordinates(4,6));
+        Pawn pawn2 = new Pawn(PieceType.PAWN,Player.BLACK,new Coordinates(5,5));
+        board.addPiece(pawn);
+        board.addPiece(pawn2);
+
+        Assertions.assertTrue(pawn.canMove(board,new Coordinates(5,5)));
     }
 }
