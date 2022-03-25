@@ -13,6 +13,7 @@ public class PawnTest {
     public void setup(){
         board = Chessboard.startingBoard();
     }
+
     @Test
     public void WhiteMoveOneSpaceUnhindered(){
         Pawn pawn = new Pawn(PieceType.PAWN,Player.WHITE,new Coordinates(4,6));
