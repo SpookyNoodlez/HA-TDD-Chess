@@ -28,7 +28,7 @@ public class Pawn extends ChessPiece {
             }
             //Moving two spaces
             else if (destination.getX() == location.getX() && destination.getY() == 4 && location.getY() == 6 // IF trying to move two spaces on the first turn
-                && chessboard.getPiece(destination) == null && chessboard.getPiece(new Coordinates(location.getX(),location.getY()+1)) == null){ //AND both spaces in front are empty
+                && chessboard.getPiece(destination) == null && chessboard.getPiece(new Coordinates(location.getX(),location.getY()-1)) == null){ //AND both spaces in front are empty
                     return true;
             }
             //Moving one space normally
