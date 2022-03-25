@@ -59,4 +59,14 @@ public class PawnTest {
 
         Assertions.assertFalse(pawn.canMove(board,new Coordinates(4,4)));
     }
+
+    @Test
+    public void WhiteCaptureLeft(){
+        Pawn pawn = new Pawn(PieceType.PAWN,Player.WHITE,new Coordinates(4,6));
+        Pawn pawn2 = new Pawn(PieceType.PAWN,Player.BLACK,new Coordinates(3,5));
+        board.addPiece(pawn);
+        board.addPiece(pawn2);
+
+        Assertions.assertTrue(pawn.canMove(board,new Coordinates(3,5)));
+    }
 }

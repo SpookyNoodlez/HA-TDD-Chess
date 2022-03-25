@@ -3,6 +3,7 @@ package ax.ha.tdd.chess.engine.pieces;
 import ax.ha.tdd.chess.engine.Chessboard;
 import ax.ha.tdd.chess.engine.Coordinates;
 import ax.ha.tdd.chess.engine.Player;
+import ax.ha.tdd.chess.web.PlayerView;
 
 import java.util.Objects;
 
@@ -26,6 +27,13 @@ public abstract class ChessPiece {
 
     public Player getPlayer() {
         return player;
+    }
+
+    public Player getOpponent(){
+        if (player == Player.WHITE){
+            return Player.BLACK;
+        }
+        return Player.WHITE;
     }
 
     public Coordinates getLocation() {

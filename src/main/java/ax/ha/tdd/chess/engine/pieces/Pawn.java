@@ -21,15 +21,15 @@ public class Pawn extends ChessPiece {
     public boolean canMove(Chessboard chessboard, Coordinates destination) {
         //White pawns only move up
         if (player == Player.WHITE){
-            //Taking enemy
+            //Capture enemy
             if ((destination.getX() == location.getX()+1 || destination.getX() == location.getX()-1) && destination.getY() == location.getY()-1 // IF destination is diagonally adjacent
-                && chessboard.getPiece(destination).player.getSymbol() == player.getOppositeSymbol()){ //AND is occupied by and enemy
+                && chessboard.getPiece(destination).player == super.getOpponent()){ //AND is occupied by and enemy
                 return true;
             }
             //Moving two spaces
             else if (destination.getX() == location.getX() && destination.getY() == 4 && location.getY() == 6 // IF trying to move two spaces on the first turn
                 && chessboard.getPiece(destination) == null && chessboard.getPiece(new Coordinates(location.getX(),location.getY()-1)) == null){ //AND both spaces in front are empty
-                    return true;
+                return true;
             }
             //Moving one space normally
             else if (destination.getX() == location.getX() && destination.getY() == location.getY()-1 //IF moving one space forward
