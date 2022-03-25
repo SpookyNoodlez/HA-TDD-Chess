@@ -79,4 +79,72 @@ public class PawnTest {
 
         Assertions.assertFalse(pawn.canMove(board,new Coordinates(7,1)));
     }
+
+    //TODO: CHANGE TESTS TO BLACK AND MAKE IT WORK IN PAWN.JAVA
+    @Test
+    public void BlackMoveOneSpaceUnhindered(){
+        Pawn pawn = new Pawn(PieceType.PAWN,Player.BLACK,new Coordinates(4,1));
+        board.addPiece(pawn);
+
+        Assertions.assertTrue(pawn.canMove(board,new Coordinates(4,2)));
+    }
+    @Test
+    public void BlackMoveOneSpaceBlocked(){
+        Pawn pawn = new Pawn(PieceType.PAWN,Player.BLACK,new Coordinates(4,1));
+        Pawn pawn2 = new Pawn(PieceType.PAWN,Player.BLACK,new Coordinates(4,2));
+        board.addPiece(pawn);
+        board.addPiece(pawn2);
+
+        Assertions.assertFalse(pawn.canMove(board,new Coordinates(4,2)));
+    }
+    @Test
+    public void BlackMoveTwoSpacesUnhindered(){
+        Pawn pawn = new Pawn(PieceType.PAWN,Player.BLACK,new Coordinates(4,1));
+        board.addPiece(pawn);
+
+        Assertions.assertTrue(pawn.canMove(board,new Coordinates(4,3)));
+    }
+    @Test
+    public void BlackMoveTwoSpacesBlockedOnFirstSquare(){
+        Pawn pawn = new Pawn(PieceType.PAWN,Player.BLACK,new Coordinates(4,1));
+        Pawn pawn2 = new Pawn(PieceType.PAWN,Player.BLACK,new Coordinates(4,2));
+        board.addPiece(pawn);
+        board.addPiece(pawn2);
+
+        Assertions.assertFalse(pawn.canMove(board,new Coordinates(4,3)));
+    }
+    @Test
+    public void BlackMoveTwoSpacesBlockedOnSecondSquare(){
+        Pawn pawn = new Pawn(PieceType.PAWN,Player.BLACK,new Coordinates(4,1));
+        Pawn pawn2 = new Pawn(PieceType.PAWN,Player.BLACK,new Coordinates(4,3));
+        board.addPiece(pawn);
+        board.addPiece(pawn2);
+
+        Assertions.assertFalse(pawn.canMove(board,new Coordinates(4,3)));
+    }
+    @Test
+    public void BlackCaptureLeft(){
+        Pawn pawn = new Pawn(PieceType.PAWN,Player.BLACK,new Coordinates(4,1));
+        Pawn pawn2 = new Pawn(PieceType.PAWN,Player.WHITE,new Coordinates(3,2));
+        board.addPiece(pawn);
+        board.addPiece(pawn2);
+
+        Assertions.assertTrue(pawn.canMove(board,new Coordinates(3,2)));
+    }
+    @Test
+    public void BlackCaptureRight(){
+        Pawn pawn = new Pawn(PieceType.PAWN,Player.BLACK,new Coordinates(4,1));
+        Pawn pawn2 = new Pawn(PieceType.PAWN,Player.WHITE,new Coordinates(5,2));
+        board.addPiece(pawn);
+        board.addPiece(pawn2);
+
+        Assertions.assertTrue(pawn.canMove(board,new Coordinates(5,2)));
+    }
+    @Test
+    public void BlackFailToGoToRandomPlace(){
+        Pawn pawn = new Pawn(PieceType.PAWN,Player.BLACK,new Coordinates(4,1));
+        board.addPiece(pawn);
+
+        Assertions.assertFalse(pawn.canMove(board,new Coordinates(7,1)));
+    }
 }
