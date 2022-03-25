@@ -21,4 +21,11 @@ public class RookTest {
 
         Assertions.assertTrue(rook.canMove(board,new Coordinates(0,4)));
     }
+    @Test
+    public void MoveRightUnhindered(){
+        Rook rook = new Rook(PieceType.ROOK,Player.WHITE,new Coordinates(4,4));
+        board.addPiece(rook);
+
+        Assertions.assertTrue(rook.canMove(board,new Coordinates(7,4)));
+    }
 }
