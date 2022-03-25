@@ -23,6 +23,16 @@ public class PawnTest {
     }
 
     @Test
+    public void WhiteMoveOneSpaceBlocked(){
+        Pawn pawn = new Pawn(PieceType.PAWN,Player.WHITE,new Coordinates(4,6));
+        Pawn pawn2 = new Pawn(PieceType.PAWN,Player.WHITE,new Coordinates(4,5));
+        board.addPiece(pawn);
+        board.addPiece(pawn2);
+
+        Assertions.assertFalse(pawn.canMove(board,new Coordinates(4,5)));
+    }
+
+    @Test
     public void WhiteMoveTwoSpacesUnhindered(){
         Pawn pawn = new Pawn(PieceType.PAWN,Player.WHITE,new Coordinates(4,6));
         board.addPiece(pawn);
