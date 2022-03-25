@@ -72,4 +72,11 @@ public class PawnTest {
 
         Assertions.assertTrue(pawn.canMove(board,new Coordinates(5,5)));
     }
+    @Test
+    public void WhiteFailToGoToRandomPlace(){
+        Pawn pawn = new Pawn(PieceType.PAWN,Player.WHITE,new Coordinates(4,6));
+        board.addPiece(pawn);
+
+        Assertions.assertFalse(pawn.canMove(board,new Coordinates(7,1)));
+    }
 }
