@@ -49,4 +49,14 @@ public class PawnTest {
 
         Assertions.assertFalse(pawn.canMove(board,new Coordinates(4,4)));
     }
+
+    @Test
+    public void WhiteMoveTwoSpacesBlockedOnSecondSquare(){
+        Pawn pawn = new Pawn(PieceType.PAWN,Player.WHITE,new Coordinates(4,6));
+        Pawn pawn2 = new Pawn(PieceType.PAWN,Player.WHITE,new Coordinates(4,4));
+        board.addPiece(pawn);
+        board.addPiece(pawn2);
+
+        Assertions.assertFalse(pawn.canMove(board,new Coordinates(4,4)));
+    }
 }
