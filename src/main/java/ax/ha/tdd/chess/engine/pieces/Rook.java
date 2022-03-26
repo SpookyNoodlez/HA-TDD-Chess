@@ -17,11 +17,9 @@ public class Rook extends ChessPiece {
         return null;
     }
 
-
-    //TODO: TAKE INTO ACCOUNT DESTINATION BEING THE SAME AS LOCATION
     @Override
     public boolean canMove(Chessboard chessboard, Coordinates destination) {
-        //Don't capture own pieces
+        //Don't capture own pieces (also makes sure you can't move to the same square)
         if (chessboard.getPiece(destination) != null){
             if (chessboard.getPiece(destination).matchesPlayer(player)){
                 return false;

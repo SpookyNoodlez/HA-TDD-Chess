@@ -42,4 +42,11 @@ public class RookTest {
 
         Assertions.assertTrue(rook.canMove(board,new Coordinates(4,5)));
     }
+    @Test
+    public void FailToMoveToSameSpace(){
+        Rook rook = new Rook(PieceType.ROOK,Player.WHITE,new Coordinates(4,2));
+        board.addPiece(rook);
+
+        Assertions.assertFalse(rook.canMove(board,new Coordinates(4,2)));
+    }
 }
