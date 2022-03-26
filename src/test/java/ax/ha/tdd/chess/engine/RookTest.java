@@ -43,6 +43,21 @@ public class RookTest {
         Assertions.assertTrue(rook.canMove(board,new Coordinates(4,5)));
     }
     @Test
+    public void FailToTakeOwnPiece(){
+        Rook rook = new Rook(PieceType.ROOK,Player.WHITE,new Coordinates(4,2));
+        Rook rook2 = new Rook(PieceType.ROOK,Player.WHITE,new Coordinates(1,2));
+        board.addPiece(rook);
+        board.addPiece(rook2);
+
+        Assertions.assertFalse(rook.canMove(board,new Coordinates(1,2)));
+    }
+
+
+
+
+
+
+    @Test
     public void FailToMoveToSameSpace(){
         Rook rook = new Rook(PieceType.ROOK,Player.WHITE,new Coordinates(4,2));
         board.addPiece(rook);
