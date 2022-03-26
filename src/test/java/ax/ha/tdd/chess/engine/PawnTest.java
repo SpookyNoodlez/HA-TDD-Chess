@@ -80,8 +80,14 @@ public class PawnTest {
 
         Assertions.assertFalse(pawn.canMove(board,new Coordinates(7,1)));
     }
+    @Test
+    public void WhiteFailToGoToSamePlace(){
+        Pawn pawn = new Pawn(PieceType.PAWN,Player.BLACK,new Coordinates(4,6));
+        board.addPiece(pawn);
 
-    //TODO: CHANGE TESTS TO BLACK AND MAKE IT WORK IN PAWN.JAVA
+        Assertions.assertFalse(pawn.canMove(board,new Coordinates(4,6)));
+    }
+
     @Test
     public void BlackMoveOneSpaceUnhindered(){
         Pawn pawn = new Pawn(PieceType.PAWN,Player.BLACK,new Coordinates(4,1));
@@ -147,5 +153,12 @@ public class PawnTest {
         board.addPiece(pawn);
 
         Assertions.assertFalse(pawn.canMove(board,new Coordinates(7,1)));
+    }
+    @Test
+    public void BlackFailToGoToSamePlace(){
+        Pawn pawn = new Pawn(PieceType.PAWN,Player.BLACK,new Coordinates(4,1));
+        board.addPiece(pawn);
+
+        Assertions.assertFalse(pawn.canMove(board,new Coordinates(4,1)));
     }
 }
