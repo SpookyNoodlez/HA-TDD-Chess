@@ -87,6 +87,42 @@ public class RookTest {
 
         Assertions.assertFalse(rook.canMove(board,new Coordinates(4,5)));
     }
+    @Test
+    public void CaptureEnemyDown(){
+        Rook rook = new Rook(PieceType.ROOK,Player.WHITE,new Coordinates(4,3));
+        Rook rook2 = new Rook(PieceType.ROOK,Player.BLACK,new Coordinates(4,5));
+        board.addPiece(rook);
+        board.addPiece(rook2);
+
+        Assertions.assertTrue(rook.canMove(board,new Coordinates(4,5)));
+    }
+    @Test
+    public void CaptureEnemyUp(){
+        Rook rook = new Rook(PieceType.ROOK,Player.WHITE,new Coordinates(4,5));
+        Rook rook2 = new Rook(PieceType.ROOK,Player.BLACK,new Coordinates(4,3));
+        board.addPiece(rook);
+        board.addPiece(rook2);
+
+        Assertions.assertTrue(rook.canMove(board,new Coordinates(4,3)));
+    }
+    @Test
+    public void CaptureEnemyLeft(){
+        Rook rook = new Rook(PieceType.ROOK,Player.WHITE,new Coordinates(4,5));
+        Rook rook2 = new Rook(PieceType.ROOK,Player.BLACK,new Coordinates(1,5));
+        board.addPiece(rook);
+        board.addPiece(rook2);
+
+        Assertions.assertTrue(rook.canMove(board,new Coordinates(1,5)));
+    }
+    @Test
+    public void CaptureEnemyRight(){
+        Rook rook = new Rook(PieceType.ROOK,Player.WHITE,new Coordinates(4,5));
+        Rook rook2 = new Rook(PieceType.ROOK,Player.BLACK,new Coordinates(7,5));
+        board.addPiece(rook);
+        board.addPiece(rook2);
+
+        Assertions.assertTrue(rook.canMove(board,new Coordinates(7,5)));
+    }
 
 
 
