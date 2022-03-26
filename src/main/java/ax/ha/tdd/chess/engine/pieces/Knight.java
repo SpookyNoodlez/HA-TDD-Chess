@@ -23,11 +23,17 @@ public class Knight extends ChessPiece {
                 return false;
             }
         }
-
+        //Long moves left and right:
         if      (destination.getY() == location.getY()-1 && destination.getX() == location.getX()-2){return true;}//One up two left
         else if (destination.getY() == location.getY()-1 && destination.getX() == location.getX()+2){return true;}//One up two right
         else if (destination.getY() == location.getY()+1 && destination.getX() == location.getX()-2){return true;}//One down two left
         else if (destination.getY() == location.getY()+1 && destination.getX() == location.getX()+2){return true;}//One down two right
+        //Long moves up and down:
+        else if (destination.getY() == location.getY()-2 && destination.getX() == location.getX()-1){return true;}//Two up one left
+        /*
+        else if (destination.getY() == location.getY()-1 && destination.getX() == location.getX()+2){return true;}//One up two right
+        else if (destination.getY() == location.getY()+1 && destination.getX() == location.getX()-2){return true;}//One down two left
+        else if (destination.getY() == location.getY()+1 && destination.getX() == location.getX()+2){return true;}//One down two right*/
 
 
         return false;

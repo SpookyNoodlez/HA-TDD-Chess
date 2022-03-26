@@ -15,32 +15,39 @@ public class KnightTest {
     }
 
     @Test
-    public void OneUpTwoLeftMove(){
+    public void OneUpTwoLeft(){
         Knight knight = new Knight(PieceType.ROOK,Player.WHITE,new Coordinates(4,3));
         board.addPiece(knight);
 
         Assertions.assertTrue(knight.canMove(board,new Coordinates(2,2)));
     }
     @Test
-    public void OneUpTwoRightMove(){
+    public void OneUpTwoRight(){
         Knight knight = new Knight(PieceType.ROOK,Player.WHITE,new Coordinates(4,3));
         board.addPiece(knight);
 
         Assertions.assertTrue(knight.canMove(board,new Coordinates(6,2)));
     }
     @Test
-    public void OneDownTwoLeftMove(){
+    public void OneDownTwoLeft(){
         Knight knight = new Knight(PieceType.ROOK,Player.WHITE,new Coordinates(4,3));
         board.addPiece(knight);
 
         Assertions.assertTrue(knight.canMove(board,new Coordinates(2,4)));
     }
     @Test
-    public void OneDownTwoRightMove(){
+    public void OneDownTwoRight(){
         Knight knight = new Knight(PieceType.ROOK,Player.WHITE,new Coordinates(4,3));
         board.addPiece(knight);
 
         Assertions.assertTrue(knight.canMove(board,new Coordinates(6,4)));
+    }
+    @Test
+    public void TwoUpOneLeft(){
+        Knight knight = new Knight(PieceType.ROOK,Player.WHITE,new Coordinates(4,3));
+        board.addPiece(knight);
+
+        Assertions.assertTrue(knight.canMove(board,new Coordinates(3,1)));
     }
 
     /*
