@@ -68,6 +68,10 @@ public class Rook extends ChessPiece {
                 }
             }
         }
+        //not lined up
+        else{
+            return false;
+        }
 
 
         return true;
