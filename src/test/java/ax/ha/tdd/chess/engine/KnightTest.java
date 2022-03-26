@@ -21,6 +21,13 @@ public class KnightTest {
 
         Assertions.assertTrue(knight.canMove(board,new Coordinates(2,2)));
     }
+    @Test
+    public void OneUpTwoRightMove(){
+        Knight knight = new Knight(PieceType.ROOK,Player.WHITE,new Coordinates(4,3));
+        board.addPiece(knight);
+
+        Assertions.assertTrue(knight.canMove(board,new Coordinates(6,2)));
+    }
 
     /*
     @Test
