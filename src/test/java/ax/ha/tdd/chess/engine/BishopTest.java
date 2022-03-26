@@ -22,6 +22,13 @@ public class BishopTest {
 
         Assertions.assertTrue(bishop.canMove(board,new Coordinates(2,2)));
     }
+    @Test
+    public void MoveDownLeftUnhindered(){
+        Bishop bishop = new Bishop(PieceType.BISHOP,Player.WHITE,new Coordinates(7,2));
+        board.addPiece(bishop);
+
+        Assertions.assertTrue(bishop.canMove(board,new Coordinates(4,5)));
+    }
 
     /*
     @Test

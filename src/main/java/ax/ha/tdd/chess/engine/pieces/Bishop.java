@@ -37,6 +37,18 @@ public class Bishop extends ChessPiece {
                     y--;
                 }
             }
+            //left and down
+            else if (destination.getX() < location.getX() && destination.getY() > location.getY()){
+                int x = location.getX()-1;
+                int y = location.getY()+1;
+                while (x > destination.getX() && y < destination.getY()){
+                    if (chessboard.getPiece(new Coordinates(x,y)) != null){
+                        return false;
+                    }
+                    x--;
+                    y++;
+                }
+            }
         }
 
         return true;
