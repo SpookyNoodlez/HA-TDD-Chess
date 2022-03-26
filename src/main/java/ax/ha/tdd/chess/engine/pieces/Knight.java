@@ -32,7 +32,7 @@ public class Knight extends ChessPiece {
         else if (destination.getY() == location.getY()-2 && destination.getX() == location.getX()-1){return true;}//Two up one left
         else if (destination.getY() == location.getY()-2 && destination.getX() == location.getX()+1){return true;}//Two up one right
         else if (destination.getY() == location.getY()+2 && destination.getX() == location.getX()-1){return true;}//Two down one left
-        else if (destination.getY() == location.getY()+1 && destination.getX() == location.getX()+2){return true;}//One down two right
+        else if (destination.getY() == location.getY()+2 && destination.getX() == location.getX()+1){return true;}//Two down one right
 
 
         return false;
