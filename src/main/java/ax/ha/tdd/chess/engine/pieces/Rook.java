@@ -30,7 +30,7 @@ public class Rook extends ChessPiece {
         if (location.getY() == destination.getY()){
             //If moving left
             if (destination.getX() < location.getX()){
-                for (int i = location.getX();i<destination.getX()+1;i--){ //one removed to not hit enemy piece to capture
+                for (int i = location.getX()-1;i>destination.getX();i--){
                     //If obstacle hit
                     if (chessboard.getPiece(new Coordinates(i, location.getY())) != null){
                         return false;
@@ -39,7 +39,7 @@ public class Rook extends ChessPiece {
             }
             //if moving right
             else{
-                for (int i = location.getX();i>destination.getX()-1;i++){ //one removed to not hit enemy piece to capture
+                for (int i = location.getX()+1;i<destination.getX();i++){
                     //If obstacle hit
                     if (chessboard.getPiece(new Coordinates(i, location.getY())) != null){
                         return false;
@@ -51,18 +51,18 @@ public class Rook extends ChessPiece {
         else if (location.getX() == destination.getX()){
             //If moving up
             if (destination.getY() < location.getY()){
-                for (int i = location.getY();i<destination.getY()+1;i--){ //one removed to not hit enemy piece to capture
+                for (int i = location.getY()-1;i>destination.getY();i--){
                     //If obstacle hit
-                    if (chessboard.getPiece(new Coordinates(i, location.getX())) != null){
+                    if (chessboard.getPiece(new Coordinates(location.getX(), i)) != null){
                         return false;
                     }
                 }
             }
             //if moving down
             else{
-                for (int i = location.getY();i>destination.getY()-1;i++){ //one removed to not hit enemy piece to capture
+                for (int i = location.getY()+1;i<destination.getY();i++){
                     //If obstacle hit
-                    if (chessboard.getPiece(new Coordinates(i, location.getX())) != null){
+                    if (chessboard.getPiece(new Coordinates(location.getX(), i)) != null){
                         return false;
                     }
                 }
@@ -72,7 +72,6 @@ public class Rook extends ChessPiece {
         else{
             return false;
         }
-
 
         return true;
     }

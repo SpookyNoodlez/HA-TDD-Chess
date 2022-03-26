@@ -51,6 +51,42 @@ public class RookTest {
 
         Assertions.assertFalse(rook.canMove(board,new Coordinates(1,2)));
     }
+    @Test
+    public void PieceInThePathGoingLeft(){
+        Rook rook = new Rook(PieceType.ROOK,Player.WHITE,new Coordinates(4,2));
+        Rook rook2 = new Rook(PieceType.ROOK,Player.WHITE,new Coordinates(2,2));
+        board.addPiece(rook);
+        board.addPiece(rook2);
+
+        Assertions.assertFalse(rook.canMove(board,new Coordinates(0,2)));
+    }
+    @Test
+    public void PieceInThePathGoingRight(){
+        Rook rook = new Rook(PieceType.ROOK,Player.WHITE,new Coordinates(4,2));
+        Rook rook2 = new Rook(PieceType.ROOK,Player.WHITE,new Coordinates(5,2));
+        board.addPiece(rook);
+        board.addPiece(rook2);
+
+        Assertions.assertFalse(rook.canMove(board,new Coordinates(7,2)));
+    }
+    @Test
+    public void PieceInThePathGoingUp(){
+        Rook rook = new Rook(PieceType.ROOK,Player.WHITE,new Coordinates(4,6));
+        Rook rook2 = new Rook(PieceType.ROOK,Player.WHITE,new Coordinates(4,4));
+        board.addPiece(rook);
+        board.addPiece(rook2);
+
+        Assertions.assertFalse(rook.canMove(board,new Coordinates(4,3)));
+    }
+    @Test
+    public void PieceInThePathGoingDown(){
+        Rook rook = new Rook(PieceType.ROOK,Player.WHITE,new Coordinates(4,3));
+        Rook rook2 = new Rook(PieceType.ROOK,Player.WHITE,new Coordinates(4,4));
+        board.addPiece(rook);
+        board.addPiece(rook2);
+
+        Assertions.assertFalse(rook.canMove(board,new Coordinates(4,5)));
+    }
 
 
 
