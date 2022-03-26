@@ -30,9 +30,16 @@ public class RookTest {
     }
     @Test
     public void MoveUpUnhindered(){
-        Rook rook = new Rook(PieceType.ROOK,Player.WHITE,new Coordinates(4,6));
+        Rook rook = new Rook(PieceType.ROOK,Player.WHITE,new Coordinates(4,5));
         board.addPiece(rook);
 
-        Assertions.assertTrue(rook.canMove(board,new Coordinates(7,2)));
+        Assertions.assertTrue(rook.canMove(board,new Coordinates(4,2)));
+    }
+    @Test
+    public void MoveDownUnhindered(){
+        Rook rook = new Rook(PieceType.ROOK,Player.WHITE,new Coordinates(4,2));
+        board.addPiece(rook);
+
+        Assertions.assertTrue(rook.canMove(board,new Coordinates(4,5)));
     }
 }
