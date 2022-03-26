@@ -35,14 +35,13 @@ public class KnightTest {
 
         Assertions.assertTrue(knight.canMove(board,new Coordinates(2,4)));
     }
-    /*
     @Test
     public void OneDownTwoRightMove(){
         Knight knight = new Knight(PieceType.ROOK,Player.WHITE,new Coordinates(4,3));
         board.addPiece(knight);
 
-        Assertions.assertTrue(knight.canMove(board,new Coordinates(6,2)));
-    }*/
+        Assertions.assertTrue(knight.canMove(board,new Coordinates(6,4)));
+    }
 
     /*
     @Test
