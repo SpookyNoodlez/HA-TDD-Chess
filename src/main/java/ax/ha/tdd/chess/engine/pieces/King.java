@@ -17,7 +17,17 @@ public class King extends ChessPiece {
 
     @Override
     public boolean canMove(Chessboard chessboard, Coordinates destination) {
-
+        //Don't capture own pieces (also makes sure you can't move to the same square)
+        if (chessboard.getPiece(destination) != null){
+            if (chessboard.getPiece(destination).matchesPlayer(player)){
+                return false;
+            }
+        }
+        //Move one space
+        if (destination.getX() == location.getX()+1 || destination.getX() == location.getX()-1
+            || destination.getY() == location.getY()+1 || destination.getY() == location.getY()-1){
+            return true;
+        }
 
 
         return false;
