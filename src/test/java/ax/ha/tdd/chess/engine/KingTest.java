@@ -70,4 +70,11 @@ public class KingTest {
 
         Assertions.assertTrue(king.canMove(board,new Coordinates(3,5)));
     }
+    @Test
+    public void FailToGoToRandomPlace(){
+        King king = new King(PieceType.KING,Player.WHITE,new Coordinates(4,4));
+        board.addPiece(king);
+
+        Assertions.assertFalse(king.canMove(board,new Coordinates(7,1)));
+    }
 }
