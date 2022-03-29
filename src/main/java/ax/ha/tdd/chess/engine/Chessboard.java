@@ -37,7 +37,7 @@ public class Chessboard implements Iterable<ChessPiece[]> {
     /**
      * Helper method to initialize chessboard with {@link ChessPieceStub}.
      * Basically mirrors all added pieces for both players.
-     * When all pieces has been implemented, this should be replaced with the proper implementations.
+     * When all pieces have been implemented, this should be replaced with the proper implementations.
      *
      * @param pieceType pieceType
      * @param xCoordinates xCoordinates
@@ -46,9 +46,11 @@ public class Chessboard implements Iterable<ChessPiece[]> {
      */
     private Chessboard withMirroredPiece(final PieceType pieceType,
                                          final List<Integer> xCoordinates, final int yCoordinate) {
+        PieceIdentifier cpr = new PieceIdentifier();
+
         xCoordinates.forEach(xCoordinate -> {
-            addPiece(new ChessPieceStub(pieceType, Player.BLACK, new Coordinates(xCoordinate, yCoordinate)));
-            addPiece(new ChessPieceStub(pieceType, Player.WHITE, new Coordinates(xCoordinate, 7 - yCoordinate)));
+            addPiece(cpr.returnCorrectPiece(pieceType, Player.BLACK, new Coordinates(xCoordinate, yCoordinate)));
+            addPiece(cpr.returnCorrectPiece(pieceType, Player.WHITE, new Coordinates(xCoordinate, 7 - yCoordinate)));
         });
         return this;
     }
