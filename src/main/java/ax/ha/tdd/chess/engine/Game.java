@@ -3,14 +3,18 @@ package ax.ha.tdd.chess.engine;
 public class Game {
 
     Chessboard board = Chessboard.startingBoard();
-    boolean isNewGame = true;
     String lastMoveResult = "Game hasn't begun";
-
+    Player playerToMove = Player.BLACK;
 
 
     public Player getPlayerToMove() {
-        //TODO this should reflect the current state.
-        return Player.WHITE;
+        if (playerToMove == Player.BLACK){
+            playerToMove = Player.WHITE;
+        }
+        else{
+            playerToMove = Player.BLACK;
+        }
+        return playerToMove;
     }
 
     public Chessboard getBoard() {
@@ -20,10 +24,9 @@ public class Game {
     public String getLastMoveResult() {
         //TODO this should be used to show the player what happened
         //Illegal move, correct move, e2 moved to e4 etc.
-        if (isNewGame) {
-            return "Game hasn't begun";
-        }
-        return "Last move was successful (default reply, change this)";
+
+
+        return lastMoveResult;
     }
 
     public void move(String move) {
@@ -31,7 +34,6 @@ public class Game {
         //input from field
 
 
-        isNewGame = false;
         System.out.println("Player tried to perform move: " + move);
     }
 }
