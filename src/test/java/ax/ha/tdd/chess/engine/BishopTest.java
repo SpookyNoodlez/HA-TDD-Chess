@@ -55,6 +55,16 @@ public class BishopTest {
         Assertions.assertTrue(bishop.canMove(board,new Coordinates(6,2)));
     }
     @Test
+    public void MoveUpRightBlocked(){
+        Bishop bishop = new Bishop(PieceType.BISHOP,Player.WHITE,new Coordinates(4,4));
+        Bishop bishop2 = new Bishop(PieceType.BISHOP,Player.WHITE,new Coordinates(5,3));
+        board.addPiece(bishop);
+        board.addPiece(bishop2);
+
+        Assertions.assertFalse(bishop.canMove(board,new Coordinates(6,2)));
+    }
+
+    @Test
     public void MoveDownRightUnhindered(){
         Bishop bishop = new Bishop(PieceType.BISHOP,Player.WHITE,new Coordinates(0,2));
         board.addPiece(bishop);
