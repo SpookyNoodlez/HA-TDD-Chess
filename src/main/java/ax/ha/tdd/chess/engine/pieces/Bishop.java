@@ -4,8 +4,9 @@ import ax.ha.tdd.chess.engine.Chessboard;
 import ax.ha.tdd.chess.engine.Coordinates;
 import ax.ha.tdd.chess.engine.Player;
 
-public class Bishop extends ChessPiece {
+import static java.lang.Math.abs;
 
+public class Bishop extends ChessPiece {
     public Bishop(PieceType pieceType, Player player, Coordinates location) {
         super(pieceType, player, location);
     }
@@ -24,55 +25,66 @@ public class Bishop extends ChessPiece {
             }
         }
         //Check if destination is on a diagonal
-        if (destination.getX() - location.getX() == destination.getY() - location.getY()){
+        if (abs(destination.getX() - location.getX()) == abs(destination.getY() - location.getY())){
             //Left and up
             if (destination.getX() < location.getX() && destination.getY() < location.getY()){
-                int x = location.getX()-1;
-                int y = location.getY()-1;
-                while (x > destination.getX() && y > destination.getY()){
-                    if (chessboard.getPiece(new Coordinates(x,y)) != null){
+                int checkX = location.getX();
+                int checkY = location.getY();
+                checkX--;
+                checkY--;
+                while (destination.getX() < checkX){
+                    if (chessboard.getPiece(new Coordinates(checkX,checkY)) != null){
                         return false;
                     }
-                    x--;
-                    y--;
+                    checkX--;
+                    checkY--;
                 }
             }
-            //left and down
+            //Left and down
             else if (destination.getX() < location.getX() && destination.getY() > location.getY()){
-                int x = location.getX()-1;
-                int y = location.getY()+1;
-                while (x > destination.getX() && y < destination.getY()){
-                    if (chessboard.getPiece(new Coordinates(x,y)) != null){
+                int checkX = location.getX();
+                int checkY = location.getY();
+                checkX--;
+                checkY++;
+                while (destination.getX() < checkX){
+                    if (chessboard.getPiece(new Coordinates(checkX,checkY)) != null){
                         return false;
                     }
-                    x--;
-                    y++;
+                    checkX--;
+                    checkY++;
                 }
             }
-            //right and up
+            //Right and up
             else if (destination.getX() > location.getX() && destination.getY() < location.getY()){
-                int x = location.getX()+1;
-                int y = location.getY()-1;
-                while (x < destination.getX() && y > destination.getY()){
-                    if (chessboard.getPiece(new Coordinates(x,y)) != null){
+                int checkX = location.getX();
+                int checkY = location.getY();
+                checkX++;
+                checkY--;
+                while (destination.getX() > checkX){
+                    if (chessboard.getPiece(new Coordinates(checkX,checkY)) != null){
                         return false;
                     }
-                    x++;
-                    y--;
+                    checkX++;
+                    checkY--;
                 }
             }
-            //right and down
+            //Right and down
             else if (destination.getX() > location.getX() && destination.getY() > location.getY()){
-                int x = location.getX()+1;
-                int y = location.getY()+1;
-                while (x < destination.getX() && y < destination.getY()){
-                    if (chessboard.getPiece(new Coordinates(x,y)) != null){
+                int checkX = location.getX();
+                int checkY = location.getY();
+                checkX++;
+                checkY++;
+                while (destination.getX() > checkX){
+                    if (chessboard.getPiece(new Coordinates(checkX,checkY)) != null){
                         return false;
                     }
-                    x++;
-                    y++;
+                    checkX++;
+                    checkY++;
                 }
             }
+        }
+        else{
+            return false;
         }
 
         return true;
