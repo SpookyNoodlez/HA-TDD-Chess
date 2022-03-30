@@ -7,6 +7,7 @@ import ax.ha.tdd.chess.engine.pieces.ChessPiece;
 import ax.ha.tdd.chess.engine.pieces.PieceType;
 
 public class Rook extends ChessPiece {
+    private boolean hasMoved = false;
 
     public Rook(PieceType pieceType, Player player, Coordinates location) {
         super(pieceType, player, location);
@@ -73,6 +74,8 @@ public class Rook extends ChessPiece {
             return false;
         }
 
+        //for castling
+        hasMoved = true;
         return true;
     }
 }

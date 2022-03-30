@@ -123,12 +123,6 @@ public class RookTest {
 
         Assertions.assertTrue(rook.canMove(board,new Coordinates(7,5)));
     }
-
-
-
-
-
-
     @Test
     public void FailToMoveToSameSpace(){
         Rook rook = new Rook(PieceType.ROOK,Player.WHITE,new Coordinates(4,2));
