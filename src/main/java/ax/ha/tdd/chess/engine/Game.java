@@ -6,17 +6,20 @@ public class Game {
 
     Chessboard board = Chessboard.startingBoard();
     String lastMoveResult = "Game hasn't begun";
-    Player playerToMove = Player.BLACK;
+    Player playerToMove = Player.WHITE;
 
 
     public Player getPlayerToMove() {
+        return playerToMove;
+    }
+
+    public void switchActivePLayer() {
         if (playerToMove == Player.BLACK){
             playerToMove = Player.WHITE;
         }
         else{
             playerToMove = Player.BLACK;
         }
-        return playerToMove;
     }
 
     public Chessboard getBoard() {
@@ -24,21 +27,18 @@ public class Game {
     }
 
     public String getLastMoveResult() {
-        //TODO this should be used to show the player what happened
+        //Used to show the player what happened
         //Illegal move, correct move, e2 moved to e4 etc.
-
-
         return lastMoveResult;
     }
 
     public void move(String move) {
         //parse input from player
-        //castling
         if (move == "O-O"){
-            //castle
+            //castle right
         }
         else if (move == "O-O-O"){
-            //castle
+            //castle left
         }
         else if (move.matches("[A-Ha-h][1-8]-[A-Ha-h][1-8]")){
             String[] startAndEnd = move.split("-");
@@ -56,6 +56,8 @@ public class Game {
                     board.removePiece(new Coordinates(start));
                     //Update lastmoveresult
                     lastMoveResult = start + " to " + end;
+
+                    switchActivePLayer();
                 }
                 else{
                     lastMoveResult = "That piece can't move there";
@@ -68,10 +70,6 @@ public class Game {
         else{
             lastMoveResult = "Invalid input: " + move;
         }
-
-
-
-
 
         System.out.println("Player tried to perform move: " + move);
     }

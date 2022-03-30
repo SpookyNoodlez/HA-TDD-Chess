@@ -17,8 +17,12 @@ public class Queen extends ChessPiece {
 
     @Override
     public boolean canMove(Chessboard chessboard, Coordinates destination) {
-
-
+        //Queen is an eldritch amalgamation consisting of a rook and bishop
+        Rook rook = new Rook(pieceType,player,location);
+        Bishop bishop = new Bishop(pieceType,player,location);
+        if (bishop.canMove(chessboard,destination) || rook.canMove(chessboard,destination)){
+            return true;
+        }
 
         return false;
     }
