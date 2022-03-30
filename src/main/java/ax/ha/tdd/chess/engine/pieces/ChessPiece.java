@@ -40,7 +40,9 @@ public abstract class ChessPiece {
         return location;
     }
 
-
+    public void setLocation(Coordinates location) {
+        this.location = location;
+    }
     /**
      * Suggestion of design:
      * Checks if the chessPiece can move to a certain destination.

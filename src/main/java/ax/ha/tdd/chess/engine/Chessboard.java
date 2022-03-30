@@ -59,4 +59,8 @@ public class Chessboard implements Iterable<ChessPiece[]> {
     public Iterator<ChessPiece[]> iterator() {
         return List.of(board).iterator();
     }
+
+    public void removePiece(Coordinates coordinates) {
+        board[coordinates.getY()][coordinates.getX()] = null;
+    }
 }
