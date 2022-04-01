@@ -12,7 +12,7 @@ public class Knight extends ChessPiece {
 
     @Override
     public String getSymbol() {
-        return null;
+        return "K";
     }
 
     @Override

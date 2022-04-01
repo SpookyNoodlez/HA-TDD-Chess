@@ -14,7 +14,7 @@ public class Pawn extends ChessPiece {
 
     @Override
     public String getSymbol() {
-        return null;
+        return "P";
     }
 
     @Override
