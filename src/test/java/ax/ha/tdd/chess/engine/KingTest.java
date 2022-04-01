@@ -12,7 +12,7 @@ public class KingTest {
 
     @BeforeEach
     public void setup(){
-        board = Chessboard.startingBoard();
+        board = Chessboard.emptyBoard();
     }
 
     @Test
@@ -81,30 +81,19 @@ public class KingTest {
     @Test
     public void FailToMoveIntoCheck(){
         King king = new King(PieceType.KING,Player.WHITE,new Coordinates(4,4));
-        Rook rook = new Rook(PieceType.ROOK,Player.BLACK,new Coordinates(0,5));
+        Rook rook = new Rook(Player.BLACK,new Coordinates(0,5));
         board.addPiece(king);
         board.addPiece(rook);
 
         Assertions.assertFalse(king.canMove(board,new Coordinates(4,5)));
     }
     @Test
-    public void WhiteCastleLeft(){
-        board = Chessboard.emptyBoard();
-        King king = new King(PieceType.KING,Player.WHITE,new Coordinates(4,7));
-        Rook rook = new Rook(PieceType.ROOK,Player.BLACK,new Coordinates(0,7));
+    public void FailToMoveIntoCheckWithOpposingKing(){
+        King king = new King(PieceType.KING,Player.WHITE,new Coordinates(4,4));
+        King king2 = new King(PieceType.KING,Player.BLACK,new Coordinates(6,4));
         board.addPiece(king);
-        board.addPiece(rook);
+        board.addPiece(king2);
 
-        Assertions.assertTrue(king.canCastleLeft(board,new Coordinates(4,7)));
-    }
-    @Test
-    public void WhiteCastleRight(){
-        board = Chessboard.emptyBoard();
-        King king = new King(PieceType.KING,Player.WHITE,new Coordinates(4,7));
-        Rook rook = new Rook(PieceType.ROOK,Player.BLACK,new Coordinates(7,7));
-        board.addPiece(king);
-        board.addPiece(rook);
-
-        Assertions.assertTrue(king.canCastleRight(board,new Coordinates(4,7)));
+        Assertions.assertFalse(king.canMove(board,new Coordinates(5,4)));
     }
 }

@@ -9,8 +9,8 @@ import ax.ha.tdd.chess.engine.pieces.PieceType;
 public class Rook extends ChessPiece {
     private boolean hasMoved = false;
 
-    public Rook(PieceType pieceType, Player player, Coordinates location) {
-        super(pieceType, player, location);
+    public Rook(Player player, Coordinates location) {
+        super(PieceType.ROOK, player, location);
     }
 
     @Override

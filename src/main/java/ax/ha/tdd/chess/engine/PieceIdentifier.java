@@ -9,7 +9,7 @@ public class PieceIdentifier {
                 return new Pawn(pieceType, player, coordinates);
             }
             case ROOK -> {
-                return new Rook(pieceType, player, coordinates);
+                return new Rook(player, coordinates);
             }
             case KING -> {
                 return new King(pieceType, player, coordinates);

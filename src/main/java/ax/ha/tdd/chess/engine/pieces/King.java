@@ -4,6 +4,8 @@ import ax.ha.tdd.chess.engine.Chessboard;
 import ax.ha.tdd.chess.engine.Coordinates;
 import ax.ha.tdd.chess.engine.Player;
 
+import static java.lang.Math.abs;
+
 public class King extends ChessPiece {
     private boolean hasMoved = false;
 
@@ -39,6 +41,10 @@ public class King extends ChessPiece {
                                 return false;
                             }
                         }
+                        else if(piece.pieceType == PieceType.KING && !piece.matchesPlayer(player)){
+                            if (abs(piece.location.getX()) - abs(location.getX()) == 2 || abs(piece.location.getY()) - abs(location.getY()) == 2)
+                            return false;
+                        }
                     }
                 }
             }
@@ -49,15 +55,4 @@ public class King extends ChessPiece {
 
         return false;
     }
-
-    public boolean canCastleLeft(Chessboard chessboard, Coordinates rookPosition){
-        //if (this.hasMoved && )
-        return true;
-    }
-
-    public boolean canCastleRight(Chessboard chessboard, Coordinates kingPosition){
-        return true;
-    }
-
-
 }

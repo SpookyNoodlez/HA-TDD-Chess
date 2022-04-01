@@ -23,7 +23,7 @@ public class Pawn extends ChessPiece {
         if (player == Player.WHITE){
             //Capture enemy
             if ((destination.getX() == location.getX()+1 || destination.getX() == location.getX()-1) && destination.getY() == location.getY()-1 // IF destination is diagonally adjacent
-                && chessboard.getPiece(destination).player == super.getOpponent()){ //AND is occupied by and enemy
+                && chessboard.getPiece(destination) != null && chessboard.getPiece(destination).player == super.getOpponent()){ //AND is occupied by and enemy
                 return true;
             }
             //Moving two spaces

@@ -16,36 +16,36 @@ public class RookTest {
 
     @Test
     public void MoveLeftUnhindered(){
-        Rook rook = new Rook(PieceType.ROOK,Player.WHITE,new Coordinates(4,4));
+        Rook rook = new Rook(Player.WHITE,new Coordinates(4,4));
         board.addPiece(rook);
 
         Assertions.assertTrue(rook.canMove(board,new Coordinates(0,4)));
     }
     @Test
     public void MoveRightUnhindered(){
-        Rook rook = new Rook(PieceType.ROOK,Player.WHITE,new Coordinates(4,4));
+        Rook rook = new Rook(Player.WHITE,new Coordinates(4,4));
         board.addPiece(rook);
 
         Assertions.assertTrue(rook.canMove(board,new Coordinates(7,4)));
     }
     @Test
     public void MoveUpUnhindered(){
-        Rook rook = new Rook(PieceType.ROOK,Player.WHITE,new Coordinates(4,5));
+        Rook rook = new Rook(Player.WHITE,new Coordinates(4,5));
         board.addPiece(rook);
 
         Assertions.assertTrue(rook.canMove(board,new Coordinates(4,2)));
     }
     @Test
     public void MoveDownUnhindered(){
-        Rook rook = new Rook(PieceType.ROOK,Player.WHITE,new Coordinates(4,2));
+        Rook rook = new Rook(Player.WHITE,new Coordinates(4,2));
         board.addPiece(rook);
 
         Assertions.assertTrue(rook.canMove(board,new Coordinates(4,5)));
     }
     @Test
     public void FailToTakeOwnPiece(){
-        Rook rook = new Rook(PieceType.ROOK,Player.WHITE,new Coordinates(4,2));
-        Rook rook2 = new Rook(PieceType.ROOK,Player.WHITE,new Coordinates(1,2));
+        Rook rook = new Rook(Player.WHITE,new Coordinates(4,2));
+        Rook rook2 = new Rook(Player.WHITE,new Coordinates(1,2));
         board.addPiece(rook);
         board.addPiece(rook2);
 
@@ -53,8 +53,8 @@ public class RookTest {
     }
     @Test
     public void PieceInThePathGoingLeft(){
-        Rook rook = new Rook(PieceType.ROOK,Player.WHITE,new Coordinates(4,2));
-        Rook rook2 = new Rook(PieceType.ROOK,Player.WHITE,new Coordinates(2,2));
+        Rook rook = new Rook(Player.WHITE,new Coordinates(4,2));
+        Rook rook2 = new Rook(Player.WHITE,new Coordinates(2,2));
         board.addPiece(rook);
         board.addPiece(rook2);
 
@@ -62,8 +62,8 @@ public class RookTest {
     }
     @Test
     public void PieceInThePathGoingRight(){
-        Rook rook = new Rook(PieceType.ROOK,Player.WHITE,new Coordinates(4,2));
-        Rook rook2 = new Rook(PieceType.ROOK,Player.WHITE,new Coordinates(5,2));
+        Rook rook = new Rook(Player.WHITE,new Coordinates(4,2));
+        Rook rook2 = new Rook(Player.WHITE,new Coordinates(5,2));
         board.addPiece(rook);
         board.addPiece(rook2);
 
@@ -71,8 +71,8 @@ public class RookTest {
     }
     @Test
     public void PieceInThePathGoingUp(){
-        Rook rook = new Rook(PieceType.ROOK,Player.WHITE,new Coordinates(4,6));
-        Rook rook2 = new Rook(PieceType.ROOK,Player.WHITE,new Coordinates(4,4));
+        Rook rook = new Rook(Player.WHITE,new Coordinates(4,6));
+        Rook rook2 = new Rook(Player.WHITE,new Coordinates(4,4));
         board.addPiece(rook);
         board.addPiece(rook2);
 
@@ -80,8 +80,8 @@ public class RookTest {
     }
     @Test
     public void PieceInThePathGoingDown(){
-        Rook rook = new Rook(PieceType.ROOK,Player.WHITE,new Coordinates(4,3));
-        Rook rook2 = new Rook(PieceType.ROOK,Player.WHITE,new Coordinates(4,4));
+        Rook rook = new Rook(Player.WHITE,new Coordinates(4,3));
+        Rook rook2 = new Rook(Player.WHITE,new Coordinates(4,4));
         board.addPiece(rook);
         board.addPiece(rook2);
 
@@ -89,8 +89,8 @@ public class RookTest {
     }
     @Test
     public void CaptureEnemyDown(){
-        Rook rook = new Rook(PieceType.ROOK,Player.WHITE,new Coordinates(4,3));
-        Rook rook2 = new Rook(PieceType.ROOK,Player.BLACK,new Coordinates(4,5));
+        Rook rook = new Rook(Player.WHITE,new Coordinates(4,3));
+        Rook rook2 = new Rook(Player.BLACK,new Coordinates(4,5));
         board.addPiece(rook);
         board.addPiece(rook2);
 
@@ -98,8 +98,8 @@ public class RookTest {
     }
     @Test
     public void CaptureEnemyUp(){
-        Rook rook = new Rook(PieceType.ROOK,Player.WHITE,new Coordinates(4,5));
-        Rook rook2 = new Rook(PieceType.ROOK,Player.BLACK,new Coordinates(4,3));
+        Rook rook = new Rook(Player.WHITE,new Coordinates(4,5));
+        Rook rook2 = new Rook(Player.BLACK,new Coordinates(4,3));
         board.addPiece(rook);
         board.addPiece(rook2);
 
@@ -107,8 +107,8 @@ public class RookTest {
     }
     @Test
     public void CaptureEnemyLeft(){
-        Rook rook = new Rook(PieceType.ROOK,Player.WHITE,new Coordinates(4,5));
-        Rook rook2 = new Rook(PieceType.ROOK,Player.BLACK,new Coordinates(1,5));
+        Rook rook = new Rook(Player.WHITE,new Coordinates(4,5));
+        Rook rook2 = new Rook(Player.BLACK,new Coordinates(1,5));
         board.addPiece(rook);
         board.addPiece(rook2);
 
@@ -116,8 +116,8 @@ public class RookTest {
     }
     @Test
     public void CaptureEnemyRight(){
-        Rook rook = new Rook(PieceType.ROOK,Player.WHITE,new Coordinates(4,5));
-        Rook rook2 = new Rook(PieceType.ROOK,Player.BLACK,new Coordinates(7,5));
+        Rook rook = new Rook(Player.WHITE,new Coordinates(4,5));
+        Rook rook2 = new Rook(Player.BLACK,new Coordinates(7,5));
         board.addPiece(rook);
         board.addPiece(rook2);
 
@@ -125,14 +125,14 @@ public class RookTest {
     }
     @Test
     public void FailToMoveToSameSpace(){
-        Rook rook = new Rook(PieceType.ROOK,Player.WHITE,new Coordinates(4,2));
+        Rook rook = new Rook(Player.WHITE,new Coordinates(4,2));
         board.addPiece(rook);
 
         Assertions.assertFalse(rook.canMove(board,new Coordinates(4,2)));
     }
     @Test
     public void FailToMoveToRandomSpace(){
-        Rook rook = new Rook(PieceType.ROOK,Player.WHITE,new Coordinates(4,2));
+        Rook rook = new Rook(Player.WHITE,new Coordinates(4,2));
         board.addPiece(rook);
 
         Assertions.assertFalse(rook.canMove(board,new Coordinates(6,5)));
