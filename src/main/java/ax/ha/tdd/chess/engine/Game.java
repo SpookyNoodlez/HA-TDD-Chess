@@ -1,6 +1,7 @@
 package ax.ha.tdd.chess.engine;
 
 import ax.ha.tdd.chess.engine.pieces.ChessPiece;
+import ax.ha.tdd.chess.engine.pieces.PieceType;
 
 public class Game {
 
@@ -35,7 +36,19 @@ public class Game {
     public void move(String move) {
         //parse input from player
         if (move == "O-O"){
-            //castle right
+            Coordinates kingCoords;
+            if (playerToMove == Player.WHITE){
+                kingCoords = new Coordinates(4,7);
+            }
+            else{
+                kingCoords = new Coordinates(4,0);
+            }
+
+            if (board.getPiece(kingCoords) != null){
+                if (board.getPiece(kingCoords).getPieceType() == PieceType.KING){
+
+                }
+            }
         }
         else if (move == "O-O-O"){
             //castle left

@@ -78,4 +78,8 @@ public class Rook extends ChessPiece {
         hasMoved = true;
         return true;
     }
+
+    public boolean getHasMoved(){
+        return hasMoved;
+    }
 }

@@ -87,4 +87,24 @@ public class KingTest {
 
         Assertions.assertFalse(king.canMove(board,new Coordinates(4,5)));
     }
+    @Test
+    public void WhiteCastleLeft(){
+        board = Chessboard.emptyBoard();
+        King king = new King(PieceType.KING,Player.WHITE,new Coordinates(4,7));
+        Rook rook = new Rook(PieceType.ROOK,Player.BLACK,new Coordinates(0,7));
+        board.addPiece(king);
+        board.addPiece(rook);
+
+        Assertions.assertTrue(king.canCastleLeft(board,new Coordinates(4,7)));
+    }
+    @Test
+    public void WhiteCastleRight(){
+        board = Chessboard.emptyBoard();
+        King king = new King(PieceType.KING,Player.WHITE,new Coordinates(4,7));
+        Rook rook = new Rook(PieceType.ROOK,Player.BLACK,new Coordinates(7,7));
+        board.addPiece(king);
+        board.addPiece(rook);
+
+        Assertions.assertTrue(king.canCastleRight(board,new Coordinates(4,7)));
+    }
 }

@@ -11,7 +11,6 @@ public abstract class ChessPiece {
 
     protected final Player player;
     protected final PieceType pieceType;
-
     protected Coordinates location;
 
     public ChessPiece(PieceType pieceType, final Player player,
