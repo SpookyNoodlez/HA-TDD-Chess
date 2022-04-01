@@ -42,7 +42,7 @@ public class King extends ChessPiece {
                             }
                         }
                         else if(piece.pieceType == PieceType.KING && !piece.matchesPlayer(player)){
-                            if (abs(piece.location.getX()) - abs(location.getX()) == 2 || abs(piece.location.getY()) - abs(location.getY()) == 2)
+                            if (abs(piece.location.getX()) - abs(destination.getX()) == 1 || abs(piece.location.getY()) - abs(destination.getY()) == 1)
                             return false;
                         }
                     }
